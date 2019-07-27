@@ -1,0 +1,41 @@
+extends layout
+
+block content
+  h1= title
+  table(style='width:100%', border='1')
+    tr
+      th Resident
+      th Energy Balance
+      th Token Balance
+      th Cash Balance
+    tr
+      td(style='text-align: center')= Residents.one
+      td(style='text-align: center')= JSON.parse(balances.energy)
+      td(style='text-align: center')= JSON.parse(balances.token)
+      td(style='text-align: center')= JSON.parse(balances.cash)
+    tr
+      td(style='text-align: center')= Residents.two
+      td(style='text-align: center')= JSON.parse(balances.energy)
+      td(style='text-align: center')= JSON.parse(balances.token)
+      td(style='text-align: center')= JSON.parse(balances.cash)
+    tr
+      td(style='text-align: center')= Residents.three
+      td(style='text-align: center')= JSON.parse(balances.energy)
+      td(style='text-align: center')= JSON.parse(balances.token)
+      td(style='text-align: center')= JSON.parse(balances.cash)
+    tr
+      td(style='text-align: center')= Residents.four
+      td(style='text-align: center')= JSON.parse(balances.energy)
+      td(style='text-align: center')= JSON.parse(balances.token)
+      td(style='text-align: center')= JSON.parse(balances.cash)
+    tr
+      td(style='text-align: center')= Residents.five
+      td(style='text-align: center')= JSON.parse(balances.energy)
+      td(style='text-align: center')= JSON.parse(balances.token)
+      td(style='text-align: center')= JSON.parse(balances.cash)
+    tr
+      td(style='text-align: center')= Residents.six
+      td(style='text-align: center')= JSON.parse(balances.energy)
+      td(style='text-align: center')= JSON.parse(balances.token)
+      td(style='text-align: center')= JSON.parse(balances.cash)
+

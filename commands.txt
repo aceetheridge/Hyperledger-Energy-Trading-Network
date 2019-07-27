@@ -1,0 +1,79 @@
+|--------------------SETUP ( FRESH NETWORK )--------------------------|
+#--------CREATE USERS-----------
+#House 1
+./fabric.sh invoke defaultcc v1 '{"Args":["CreateResident","idres1","{\"firstName\":\"Steven\",\"lastName\":\"Furgurson\",\"alias\":\"House1\",\"tokens\":\"idtok1\",\"id\":\"idres1\",\"type\":\"Prosumer\",\"cash\":\"idcash1\",\"energy\":\"iden1\"}"]}'
+
+#House 2
+./fabric.sh invoke defaultcc v1 '{"Args":["CreateResident","idres2","{\"firstName\":\"Aaron\",\"lastName\":\"Etheridge\",\"alias\":\"House2\",\"tokens\":\"idtok2\",\"id\":\"idres2\",\"type\":\"Prosumer\",\"cash\":\"idcash2\",\"energy\":\"iden2\"}"]}'
+
+#House 3
+./fabric.sh invoke defaultcc v1 '{"Args":["CreateResident","idres3","{\"firstName\":\"Doug\",\"lastName\":\"Eshenbaugh\",\"alias\":\"House3\",\"tokens\":\"idtok3\",\"id\":\"idres3\",\"type\":\"Prosumer\",\"cash\":\"idcash3\",\"energy\":\"iden3\"}"]}'
+
+#House 4
+./fabric.sh invoke defaultcc v1 '{"Args":["CreateResident","idres4","{\"firstName\":\"Austin\",\"lastName\":\"Fifield\",\"alias\":\"House4\",\"tokens\":\"idtok4\",\"id\":\"idres4\",\"type\":\"Prosumer\",\"cash\":\"idcash4\",\"energy\":\"iden4\"}"]}'
+
+#House 5
+./fabric.sh invoke defaultcc v1 '{"Args":["CreateResident","idres5","{\"firstName\":\"Jay\",\"lastName\":\"Patel\",\"alias\":\"House5\",\"tokens\":\"idtok5\",\"id\":\"idres5\",\"type\":\"Prosumer\",\"cash\":\"idcash5\",\"energy\":\"iden5\"}"]}'
+
+#House 6
+./fabric.sh invoke defaultcc v1 '{"Args":["CreateResident","idres6","{\"firstName\":\"Huy\",\"lastName\":\"Huy\",\"alias\":\"House6\",\"tokens\":\"idtok6\",\"id\":\"idres6\",\"type\":\"Prosumer\",\"cash\":\"idcash6\",\"energy\":\"iden6\"}"]}'
+
+#----------CREATE ASSETS---------
+# Create Tokens
+./fabric.sh invoke defaultcc v1 '{"Args":["CreateToken","idtok1","{\"owner\":\"owner\",\"ownerType\":\"Resident\",\"id\":\"idtok1\",\"value\":\"1000\"}"]}'
+./fabric.sh invoke defaultcc v1 '{"Args":["CreateToken","idtok2","{\"owner\":\"owner\",\"ownerType\":\"Resident\",\"id\":\"idtok2\",\"value\":\"1000\"}"]}'
+./fabric.sh invoke defaultcc v1 '{"Args":["CreateToken","idtok3","{\"owner\":\"owner\",\"ownerType\":\"Resident\",\"id\":\"idtok3\",\"value\":\"1000\"}"]}'
+./fabric.sh invoke defaultcc v1 '{"Args":["CreateToken","idtok4","{\"owner\":\"owner\",\"ownerType\":\"Resident\",\"id\":\"idtok4\",\"value\":\"1000\"}"]}'
+./fabric.sh invoke defaultcc v1 '{"Args":["CreateToken","idtok5","{\"owner\":\"owner\",\"ownerType\":\"Resident\",\"id\":\"idtok5\",\"value\":\"1000\"}"]}'
+./fabric.sh invoke defaultcc v1 '{"Args":["CreateToken","idtok6","{\"owner\":\"owner\",\"ownerType\":\"Resident\",\"id\":\"idtok6\",\"value\":\"1000\"}"]}'
+
+# Create Energy
+./fabric.sh invoke defaultcc v1 '{"Args":["CreateEnergy","iden1","{\"owner\":\"owner\",\"ownerType\":\"Resident\",\"id\":\"iden1\",\"units\":\"kWh\",\"value\":\"1000\"}"]}'
+./fabric.sh invoke defaultcc v1 '{"Args":["CreateEnergy","iden2","{\"owner\":\"owner\",\"ownerType\":\"Resident\",\"id\":\"iden2\",\"units\":\"kWh\",\"value\":\"1000\"}"]}'
+./fabric.sh invoke defaultcc v1 '{"Args":["CreateEnergy","iden3","{\"owner\":\"owner\",\"ownerType\":\"Resident\",\"id\":\"iden3\",\"units\":\"kWh\",\"value\":\"1000\"}"]}'
+./fabric.sh invoke defaultcc v1 '{"Args":["CreateEnergy","iden4","{\"owner\":\"owner\",\"ownerType\":\"Resident\",\"id\":\"iden4\",\"units\":\"kWh\",\"value\":\"1000\"}"]}'
+./fabric.sh invoke defaultcc v1 '{"Args":["CreateEnergy","iden5","{\"owner\":\"owner\",\"ownerType\":\"Resident\",\"id\":\"iden5\",\"units\":\"kWh\",\"value\":\"1000\"}"]}'
+./fabric.sh invoke defaultcc v1 '{"Args":["CreateEnergy","iden6","{\"owner\":\"owner\",\"ownerType\":\"Resident\",\"id\":\"iden6\",\"units\":\"kWh\",\"value\":\"1000\"}"]}'
+
+# Create Cash
+./fabric.sh invoke defaultcc v1 '{"Args":["CreateCash","idcash1","{\"owner\":\"owner\",\"ownerType\":\"Resident\",\"currency\":\"USD\",\"id\":\"idcash1\",\"value\":\"1000\"}"]}'
+./fabric.sh invoke defaultcc v1 '{"Args":["CreateCash","idcash2","{\"owner\":\"owner\",\"ownerType\":\"Resident\",\"currency\":\"USD\",\"id\":\"idcash2\",\"value\":\"1000\"}"]}'
+./fabric.sh invoke defaultcc v1 '{"Args":["CreateCash","idcash3","{\"owner\":\"owner\",\"ownerType\":\"Resident\",\"currency\":\"USD\",\"id\":\"idcash3\",\"value\":\"1000\"}"]}'
+./fabric.sh invoke defaultcc v1 '{"Args":["CreateCash","idcash4","{\"owner\":\"owner\",\"ownerType\":\"Resident\",\"currency\":\"USD\",\"id\":\"idcash4\",\"value\":\"1000\"}"]}'
+./fabric.sh invoke defaultcc v1 '{"Args":["CreateCash","idcash5","{\"owner\":\"owner\",\"ownerType\":\"Resident\",\"currency\":\"USD\",\"id\":\"idcash5\",\"value\":\"1000\"}"]}'
+./fabric.sh invoke defaultcc v1 '{"Args":["CreateCash","idcash6","{\"owner\":\"owner\",\"ownerType\":\"Resident\",\"currency\":\"USD\",\"id\":\"idcash6\",\"value\":\"1000\"}"]}'
+
+
+#-----QUERY TRANSACTIONS---------
+./fabric.sh invoke defaultcc v1 '{"Args":["GetAllTran"]}'
+
+#-----QUERY RESIDENTS--------------
+./fabric.sh query defaultcc v1 '{"Args":["RetrieveResident","idres1"]}'
+./fabric.sh query defaultcc v1 '{"Args":["RetrieveResident","idres2"]}'
+./fabric.sh query defaultcc v1 '{"Args":["RetrieveResident","idres3"]}'
+./fabric.sh query defaultcc v1 '{"Args":["RetrieveResident","idres4"]}'
+./fabric.sh query defaultcc v1 '{"Args":["RetrieveResident","idres5"]}'
+./fabric.sh query defaultcc v1 '{"Args":["RetrieveResident","idres6"]}'
+
+
+#-----------UPDATE ASSET VALUES----------
+# Cash
+{"owner":"owner","ownerType":"Resident","currency":"USD","id":"idcash1","value": "1000"}
+{\"owner\":\"owner\",\"ownerType\":\"Resident\",\"currency\":\"USD\",\"id\":\"idcash890\",\"value\": \"1000\"}
+{"owner":"owner","ownerType":"Resident","currency":"USD","id":"idcash2","value": "1000"}
+{\"owner\":\"owner\",\"ownerType\":\"Resident\",\"currency\":\"USD\",\"id\":\"idcash123\",\"value\": \"1000\"}
+
+
+  energy
+{"owner":"owner","ownerType":"Resident","id":"iden890","units":"kWh","value":"1000"}
+{\"owner\":\"owner\",\"ownerType\":\"Resident\",\"id\":\"iden890\",\"units\":\"kWh\",\"value\":\"1000\"}
+{"owner":"owner","ownerType":"Resident","id":"iden123","units":"kWh","value":"1000"}
+{\"owner\":\"owner\",\"ownerType\":\"Resident\",\"id\":\"iden123\",\"units\":\"kWh\",\"value\":\"1000\"}
+
+    token
+{"owner":"owner","ownerType":"Resident","id":"idtok890","value":"1000"}
+{\"owner\":\"owner\",\"ownerType\":\"Resident\",\"id\":\"idtok890\",\"value\":\"1000\"}
+{"owner":"owner","ownerType":"Resident","id":"idtok123","value":"1000"}
+{\"owner\":\"owner\",\"ownerType\":\"Resident\",\"id\":\"idtok123\",\"value\":\"1000\"}
+
+ docker logs -f peer0.org1.example.com

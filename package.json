@@ -1,0 +1,47 @@
+{
+  "name": "fab-client",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www",
+    "test": "ENVIRONMENT=local mocha --timeout 10000 ./tests/integration/*.js",
+    "dev": "nodemon node ./bin/www",
+    "socket": "nodemon node ./src/udoo/websocket_server.js",
+    "debug": "GRPC_TRACE=all GRPC_VERBOSITY=DEBUG node ./src/udoo/websocket_server.js",
+    "serial": "nodemon node ./src/udoo/socket_testing.js 1 0 0",
+    "all": "concurrently \"nodemon node ./src/udoo/websocket_server.js\" \"nodemon node ./src/udoo/socket_testing.js\"",
+    "kill": "fuser -n tcp -k 3000"
+  },
+  "engines": {
+    "node": "^8.9.0",
+    "npm": "^5.5.1"
+  },
+  "engineStrict": true,
+  "dependencies": {
+    "ajv": "^5.5.2",
+    "app-root-path": "^2.1.0",
+    "axios": "^0.18.0",
+    "concurrently": "^4.1.0",
+    "cookie-parser": "~1.4.3",
+    "cors": "^2.8.5",
+    "debug": "~2.6.9",
+    "dotenv": "^6.2.0",
+    "express": "~4.16.0",
+    "fabric-ca-client": "1.3.0",
+    "fabric-client": "1.3.0",
+    "http-errors": "~1.6.2",
+    "morgan": "^1.9.1",
+    "pug": "2.0.0-beta11",
+    "serialport": "^7.1.4",
+    "shelljs": "^0.8.3",
+    "socket.io": "^2.2.0",
+    "tynt": "^1.2.0",
+    "winston": "^3.2.1",
+    "ws": "^6.2.1"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "nodemon": "^1.18.10",
+    "randomstring": "^1.1.5"
+  }
+}

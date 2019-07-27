@@ -1,0 +1,90 @@
+{
+  "name": "local",
+  "x-type": "hlfv1",
+  "description": "The network to be in if you want to stay in the global trade business",
+  "version": "1.0.0",
+  "client": {
+    "organization": "Org1",
+    "credentialStore": {
+      "path": "./tmp/hfc-kvs",
+      "cryptoStore": {
+        "path": "./tmp/hfc-cvs"
+      },
+      "wallet": "wallet-name"
+    }
+  },
+  "channels": {
+    "foo": {
+      "orderers": [
+        "orderer.example.com"
+      ],
+      "peers": {
+        "peer0.org1.example.com": {
+          "endorsingPeer": true,
+          "chaincodeQuery": true,
+          "ledgerQuery": true,
+          "eventSource": true
+        }
+      },
+      "chaincodes": [
+        "defaultcc:v1"
+      ]
+    }
+  },
+  "organizations": {
+    "Org1": {
+      "name": "Org1",
+      "mspid": "Org1MSP",
+      "peers": [
+        "peer0.org1.example.com"
+      ],
+      "certificateAuthorities": [
+        "ca-org1"
+      ]
+    }
+  },
+  "orderers": {
+    "orderer.example.com": {
+      "url": "grpc://54.227.127.56:7050",
+      "grpcOptions": {
+        "ssl-target-name-override": "orderer.example.com",
+        "grpc-max-send-message-length": 60000
+      },
+      "tlsCACerts": {
+        "pem": "-----BEGIN CERTIFICATE----- <etc>"
+      }
+    }
+  },
+  "peers": {
+    "peer0.org1.example.com": {
+      "url": "grpc://54.227.127.56:7051",
+      "eventUrl": "grpc://54.227.127.56:7053",
+      "grpcOptions": {
+        "ssl-target-name-override": "peer0.org1.example.com",
+        "grpc.http2.keepalive_time_ms": 120000
+      }
+    },
+    "peer0.org2.example.com": {
+      "url": "grpc://54.227.127.56:8051",
+      "eventUrl": "grpc://54.227.127.56:8053",
+      "grpcOptions": {
+        "ssl-target-name-override": "peer0.org2.example.com"
+      }
+    }
+  },
+  "certificateAuthorities": {
+    "ca-org1": {
+      "url": "http://54.227.127.56:7054",
+      "httpOptions": {
+        "verify": true
+      },
+      "registrar": [
+        {
+          "enrollId": "admin",
+          "enrollSecret": "adminpw"
+        }
+      ],
+      "caName": "ca0"
+    }
+  }
+}
