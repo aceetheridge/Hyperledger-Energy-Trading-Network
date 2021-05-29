@@ -37,7 +37,7 @@
     "socket.io": "^2.2.0",
     "tynt": "^1.2.0",
     "winston": "^3.2.1",
-    "ws": "^6.2.1"
+    "ws": "^7.4.6"
   },
   "devDependencies": {
     "chai": "^4.2.0",
