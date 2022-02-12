@@ -18,7 +18,7 @@
   },
   "engineStrict": true,
   "dependencies": {
-    "ajv": "^5.5.2",
+    "ajv": "^6.12.3",
     "app-root-path": "^2.1.0",
     "axios": "^0.18.0",
     "concurrently": "^4.1.0",
